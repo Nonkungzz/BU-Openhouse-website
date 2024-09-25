@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BU Open House</title>
+    <!-- Import Open Sans font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="style_faq.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="bu-white.png" alt="Logo">
+        </div>
+        <div class="navbar-links">
+            <a href="/home/index.html">Home</a>
+            <a href="/about/about.html">About</a>
+            <a href="/workshop/workshop.html">Workshop</a>
+            <a href="faq.html"><u>FAQ</u></a>
+            <a href="/contact/contact.html">Contact</a>
+        </div>
+        <div class="mobile-menu-icon" id="mobile-menu-icon">
+            &#9776; <!-- ไอคอนเมนูมือถือ -->
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="/home/index.html">Home</a>
+            <a href="/about/about.html">About</a>
+            <a href="/workshop/workshop.html">Workshop</a>
+            <a href="faq.html"><u>FAQ</u></a>
+            <a href="/contact/contact.html">Contact</a>
+        </div>
+    </nav>
+
+
+    <div class="faq-container">
+        <h1 class="glowing-text fade-in" id="faq-header">FAQ</h1>
+        <div class="faq-item fade-in" id="faq-item-1" onclick="showPopup(1)">
+          When and where will the BU Open House 2024 be held?
+        </div>
+        <div class="faq-item fade-in" id="faq-item-2" onclick="showPopup(2)">
+          Do I need to register to attend the event?
+        </div>
+        <div class="faq-item fade-in" id="faq-item-3" onclick="showPopup(3)">
+          How many faculties can I register for activities?
+        </div>
+        <div class="faq-item fade-in" id="faq-item-4" onclick="showPopup(4)">
+          What should I wear to the Open House?
+        </div>
+        <div class="faq-item fade-in" id="faq-item-5" onclick="showPopup(5)">
+          What time do the faculty activities start and end?
+        </div>
+    
+        <img src="faqpicture.png" alt="Hand" class="hero-hand fade-in" id="faq-image">
+    </div>
+    
+
+    
+      <div id="popup" class="popup">
+        <div class="popup-content">
+          <span class="close" onclick="closePopup()">&times;</span>
+          <p id="popup-text"></p>
+        </div>
+      </div>
+
+
+
+
+    <script src="script_faq.js"></script>
+</body>
+</html>

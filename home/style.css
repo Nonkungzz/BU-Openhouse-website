@@ -1,0 +1,400 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background-image: url('wall1.jpg'); /* เปลี่ยนเป็น path ของภาพพื้นหลังที่คุณต้องการ */
+    background-size: cover;
+    background-position: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    position: fixed; /* เปลี่ยนจาก absolute เป็น fixed */
+    width: 100%;
+    top: 0; /* ให้ navbar อยู่ที่ด้านบนเสมอ */
+    z-index: 10;
+    background-color: rgba(20, 23, 43, 0.8); /* เพิ่มพื้นหลังเพื่อให้ดูชัดเจนขณะเลื่อน */
+}
+
+
+.navbar-logo img {
+    height: 55px; /* ปรับขนาดโลโก้ได้ตามต้องการ */
+}
+
+.navbar-links {
+    display: flex;
+    gap: 60px;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* เมนูสำหรับมือถือ */
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    top: 100px;
+    right: 50px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.mobile-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* ไอคอนเมนูมือถือ */
+.mobile-menu-icon {
+    display: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Responsive สำหรับหน้าจอเล็ก */
+@media (max-width: 768px) {
+    .navbar-links {
+        display: none; /* ซ่อนเมนูปกติ */
+    }
+
+    .mobile-menu-icon {
+        display: block; /* แสดงไอคอนเมนู */
+    }
+
+    /* เมนูมือถือเมื่อกดที่ไอคอน */
+    #mobile-menu.active {
+        display: flex;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hero-section {
+    margin-top: 12%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;  
+    height: 100vh;
+    color: white;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding-top: 100px;
+}
+
+.hero-section h1, 
+.hero-section h2 {
+    opacity: 0; 
+    transform: translateY(150px);  
+    animation: moveTextUp 3s ease-out forwards;
+    z-index: 1;
+}
+
+.hero-section h1 {
+    font-size: 8vw;
+    margin-bottom: 20px;
+}
+
+.hero-section h2 {
+    font-size: 4vw;
+    letter-spacing: 0.5vw;
+    margin-top: -20px;
+}
+
+/* รูปภาพมือ */
+.hero-hand {
+    width: 75vw; /* ปรับขนาดรูปภาพมือให้ใหญ่ขึ้น */
+    opacity: 0;
+    transform: translateY(150px);
+    animation: moveHandUp 3s ease-out forwards;
+    position: absolute; /* ทำให้รูปมืออยู่แบบ absolute */
+    right: 0; /* ชิดมุมขวาของหน้าจอ */
+    z-index: 0; /* ทำให้รูปมืออยู่ข้างหลังข้อความ */
+    margin-top: 15vw;
+
+}
+
+/* อนิเมชั่นสำหรับข้อความ */
+@keyframes moveTextUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-50px);  
+    }
+}
+
+/* อนิเมชั่นสำหรับรูปมือ */
+@keyframes moveHandUp {
+    0% {
+        opacity: 0;
+        transform: translateY(150px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive สำหรับหน้าจอขนาดเล็ก */
+@media (max-width: 768px) {
+    .hero-section {
+        padding-top: 120px;
+    }
+
+
+}
+
+@media (max-width: 480px) {
+    .hero-section h1 {
+        font-size: 12vw;
+    }
+
+    .hero-section h2 {
+        font-size: 7vw;
+        letter-spacing: 1vw;
+    }
+    
+    .hero-section {
+        padding-top: 150px;
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+/* Highlight Section */
+.highlight-section {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.text-area {
+    width: 50%;
+}
+
+.text-area h1 {
+    text-align: center;
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.text-area p {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.text-area button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.text-area button:hover {
+    background-color: #0056b3;
+}
+
+/* Gallery / Slider */
+.gallery {
+    width: 40%;
+    position: relative;
+}
+
+.gallery .slide {
+    position: relative;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.gallery p {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    font-size: 1.5em;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.container {
+    height: 400px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: start;
+    position: relative;
+}
+
+.card {
+    width: 80px;
+    border-radius: .75rem;
+    background-size: cover;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 2rem;
+    margin: 0 10px;
+    display: flex;
+    align-items: flex-end;
+    transition: .6s cubic-bezier(.28,-0.03,0,.99);
+    box-shadow: 0px 10px 30px -5px rgba(0,0,0,0.8);
+}
+
+.card > .row {
+    color: white;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.card > .row > .description {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    height: 80px;
+    width: 520px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition-delay: .3s;
+    transition: all .3s ease;
+}
+
+.description h4 {
+    padding: 27px;
+    text-transform: uppercase;
+    background-color: rgb(75 95 191 / 40%);
+    border-radius: 0%;
+    margin-top: 22px;
+}
+
+input {
+    display: none;
+}
+
+input:checked + label {
+    width: 500px;
+}
+
+input:checked + label .description {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* จัดตำแหน่งจุด (dots) */
+.dots {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 420px; /* ขยับจุดให้อยู่ใกล้การ์ด */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* เปลี่ยนสีจุดเมื่อเลือกการ์ด */
+input[id="c1"]:checked ~ .dots label[for="c1"],
+input[id="c2"]:checked ~ .dots label[for="c2"],
+input[id="c3"]:checked ~ .dots label[for="c3"],
+input[id="c4"]:checked ~ .dots label[for="c4"] {
+    background-color: #4CAF50;
+}
+
+
+.card[for="c1"] {
+    background-image: url('oph1.jpg');
+}
+.card[for="c2"] {
+    background-image: url('oph2.jpg');
+}
+.card[for="c3"] {
+    background-image: url('oph3.png');
+}
+.card[for="c4"] {
+    background-image: url('oph4.jpg');
+}

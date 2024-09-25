@@ -1,0 +1,200 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background-image: url('wall1.jpg'); /* เปลี่ยนเป็น path ของภาพพื้นหลังที่คุณต้องการ */
+    background-size: cover;
+    background-position: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    position: fixed; /* เปลี่ยนจาก absolute เป็น fixed */
+    width: 100%;
+    top: 0; /* ให้ navbar อยู่ที่ด้านบนเสมอ */
+    z-index: 10;
+    background-color: rgba(20, 23, 43, 0.8); /* เพิ่มพื้นหลังเพื่อให้ดูชัดเจนขณะเลื่อน */
+}
+
+
+.navbar-logo img {
+    height: 55px; /* ปรับขนาดโลโก้ได้ตามต้องการ */
+}
+
+.navbar-links {
+    display: flex;
+    gap: 60px;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/* เมนูสำหรับมือถือ */
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    top: 100px;
+    right: 50px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.mobile-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* ไอคอนเมนูมือถือ */
+.mobile-menu-icon {
+    display: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Responsive สำหรับหน้าจอเล็ก */
+@media (max-width: 768px) {
+    .navbar-links {
+        display: none; /* ซ่อนเมนูปกติ */
+    }
+
+    .mobile-menu-icon {
+        display: block; /* แสดงไอคอนเมนู */
+    }
+
+    /* เมนูมือถือเมื่อกดที่ไอคอน */
+    #mobile-menu.active {
+        display: flex;
+    }
+}
+
+
+/* General Styles */
+.big-container {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    width: 80%;
+    max-width: 800px;
+    text-align: left;
+    padding: 50px;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Title & Text */
+h1 {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px #fff, 0 0 5px #fff, 0 0 5px rgb(0, 195, 255), 0 0 5px rgb(0, 183, 255), 0 0 5px rgb(2, 175, 255), 0 0 1px rgb(0, 183, 255);
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.5em;
+    margin-bottom: 30px;
+}
+
+/* Section Spacing */
+.title-section {
+    padding-bottom: 20px;
+}
+
+.content-section {
+    margin-top: 50px;
+}
+
+/* Hands Image Animations */
+.hand-top, .hand-bottom {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+.hand-top {
+    left: 10%;
+    top: 0;
+    width: 20%;
+    height: auto;
+}
+
+.hand-bottom {
+    left: 80%;
+    bottom: 0;
+    width: 20%;
+    height: auto;
+}
+
+/* Hover Animation for Hands */
+.hand-top:hover, .hand-bottom:hover {
+    transform: scale(1);
+}
+
+/* Animation Triggers */
+.show-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.show-hands {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+
+@media (max-width: 1000px) {
+    .hand-top {
+        left: 10%;
+        top: 0;
+        width: 0%;
+        height: auto;
+    }
+    
+    .hand-bottom {
+        left: 80%;
+        bottom: 0;
+        width: 0%;
+        height: auto;
+    }
+
+    .container{
+        margin-top: 20%;
+    }
+    
+}
